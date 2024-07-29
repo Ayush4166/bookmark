@@ -1,0 +1,32 @@
+<table class="table table-hover table-borderless">
+  <thead class="table-light">
+    <tr>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Price</th>
+      <th>
+        <div class="float-end">
+          <a href="/books/addOrEdit" class="btn btn-sm btn-success">+ Add</a>
+        </div>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each books}}
+    <tr>
+      <td>{{this.title}}</td>
+      <td>{{this.author}}</td>
+      <td>${{this.price}}</td>
+      <td>
+        <form action="/books/delete/{{this._id}}" method="post">
+          <a href="/books/addOrEdit/{{this._id}}" class="btn btn-sm btn-link">Edit</a>
+          <button type="submit" class="btn btn-sm btn-outline-danger">
+            DEL
+          </button>
+        </form>
+      </td>
+    </tr>
+
+    {{/each}}
+  </tbody>
+</table>
